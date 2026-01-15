@@ -2,17 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import { ToolbarComponent } from './dashboard/toolbar/toolbar.component';
-import { NavbarComponent } from './dashboard/navbar/navbar.component';
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { LayoutComponent } from './layout/layout.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent,ToolbarComponent,NavbarComponent],
+  declarations: [LayoutComponent,ToolbarComponent,NavbarComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
@@ -21,6 +21,5 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatListModule
   ],
-   exports: [DashboardComponent]
 })
 export class AdminModule { }

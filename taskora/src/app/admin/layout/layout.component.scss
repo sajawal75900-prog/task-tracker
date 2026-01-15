@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column; /* column because toolbar is on top */
+  height: 100vh;
+}
+
+.toolbar {
+  flex: 0 0 auto; /* fixed height toolbar */
+}
+
+.content {
+  flex: 1; /* take remaining height */
+  display: flex;
+  flex-direction: row; /* row: nav left, main right */
+}
+
+.nav {
+  flex: 0 0 200px; /* fixed width nav */
+  border-right: 1px solid #ccc;
+}
+
+.main {
+  flex: 1; /* fill remaining space */
+  padding: 16px;
+  overflow-y: auto;
+}
