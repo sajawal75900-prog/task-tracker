@@ -1,1 +1,18 @@
-<p>project-listing works!</p>
+<div class="portfolio-container">
+  <div class="flex items-center justify-between mb-6 header">
+    <span class="heading">Project Portfolio</span>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="openCreateProjectDialog()">
+      + New Project
+    </button>
+  </div>
+
+  <div class="empty-state">
+    <mat-icon class="folder-icon" color="primary">folder</mat-icon>
+    <h3>No Projects Found</h3>
+    <p>Click the button in the header to create your very first project!</p>
+      <button mat-flat-button color="primary"  (click)="openCreateProjectDialog()">Create Project</button>
+  </div>
+</div>
