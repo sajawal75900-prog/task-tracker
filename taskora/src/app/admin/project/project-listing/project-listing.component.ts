@@ -1,10 +1,9 @@
 import { Component, signal, Signal } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatIcon } from "@angular/material/icon";
 import { ProjectDetialComponent } from '../project-detial/project-detial.component';
 import { ProjectOfflineDbService } from '../../../cores/offline-db/project-offline-db.service';
 import { ProjectDetail } from '../../../cores/models/project-detail.model';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-project-listing',
   templateUrl: './project-listing.component.html',
@@ -12,17 +11,19 @@ import { ProjectDetail } from '../../../cores/models/project-detail.model';
 })
 export class ProjectListingComponent {
   projects = signal<ProjectDetail[]>([]);
-constructor(private dialog: MatDialog, private projectService: ProjectOfflineDbService) {}
+constructor(private dialog: MatDialog, private projectService: ProjectOfflineDbService,
+  private router: Router
+) {}
 
 ngOnInit() {
     this.getProjects();
   }
 
-  openCreateProjectDialog() {
+  openCreateProjectDialog(project?: ProjectDetail) {
     const dialogRef = this.dialog.open(ProjectDetialComponent, {
       width: '700px',
       disableClose: true,
-      data: null // you can pass data if needed
+      data: project // you can pass data if needed
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -40,4 +41,9 @@ ngOnInit() {
     });
     // Logic to fetch and display projects
   }
+
+   onGoToTasks(projectId: number) {
+  this.router.navigate(['/tasks', projectId]);
+}
+
 }

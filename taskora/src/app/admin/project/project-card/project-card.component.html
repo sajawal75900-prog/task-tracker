@@ -1,0 +1,48 @@
+<div class="card w-full p-2 rounded-lg shadow-sm border border-gray-200">
+  <div class="flex items-center mb-2">
+    <span class="material-icons mr-2 text-indigo-600">folder</span>
+  <div class="ml-auto">
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="projectMenu"
+      aria-label="Project actions"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #projectMenu="matMenu">
+      <button mat-menu-item (click)="onEdit()">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+
+      <button mat-menu-item (click)="onGoToTasks()">
+        <mat-icon>assignment</mat-icon>
+        <span>Go to Tasks</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>
+
+   <span class="font-bold text-lg">{{ project.name }}</span>
+  <p class="text-gray-500 mb-4 line-clamp-1">
+  {{ project.description || ' ' }}
+</p>
+
+
+  <div class="mb-4">
+    <div class="w-full bg-gray-200 h-2 rounded-full">
+      <div class="bg-indigo-600 h-2 rounded-full" [style.width.%]="70"></div>
+    </div>
+    <div class="text-sm text-gray-500 mt-1">{{ 40 }}%</div>
+  </div>
+
+  <div class="flex justify-between text-gray-500 text-sm">
+    <div class="flex items-center">
+      <mat-icon class="text-gray-400 mr-1">check_circle</mat-icon> {{ project.tasks?.length || 0 }} Tasks
+    </div>
+    <div class="flex items-center">
+      <mat-icon class="text-gray-400 mr-1">calendar_today</mat-icon> {{ project.createdAt | date:'mediumDate' }}
+    </div>
+  </div>
+</div>

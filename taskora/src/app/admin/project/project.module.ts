@@ -11,10 +11,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { ProjectCardComponent } from './project-card/project-card.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
-  declarations: [ProjectListingComponent,ProjectDetialComponent],
+  declarations: [ProjectListingComponent,ProjectDetialComponent,ProjectCardComponent],
   imports: [
     CommonModule,
     ProjectRoutingModule,
@@ -24,7 +26,8 @@ import { MatInputModule } from '@angular/material/input';
     MatSelectModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    MatMenuModule
 
   ]
 })
