@@ -9,32 +9,3 @@
       font-weight: bold;
     }
   }
-
-  .heading{
-    font-size: 32px;
-    font-weight: 200px;
-    margin: 0;
-  }
-
-  .empty-state {
-    display: flex;
-    flex-direction: column;
-    border: 2px dashed #ccc;
-    align-items: center;
-    gap: 16px;
-
-    .folder-icon {
-      font-size: 64px;
-    }
-
-    h3 {
-      font-size: 24px;
-      font-weight: 600;
-    }
-
-    p {
-      color: gray;
-      font-size: 16px;
-      margin: 0;
-    }
-  }

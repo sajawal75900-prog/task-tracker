@@ -1,26 +1,26 @@
-.container {
-  display: flex;
-  flex-direction: column; /* column because toolbar is on top */
-  height: 100vh;
-}
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+// }
 
-.toolbar {
-  flex: 0 0 auto; /* fixed height toolbar */
-}
+// .toolbar {
+//   flex: 0 0 auto;
+// }
 
-.content {
-  flex: 1; /* take remaining height */
-  display: flex;
-  flex-direction: row; /* row: nav left, main right */
-}
+// .content {
+//   display: flex;
+//   flex: 1;
+//   min-height: 0;
+// }
 
-.nav {
-  flex: 0 0 200px; /* fixed width nav */
-  border-right: 1px solid #ccc;
-}
+// .nav {
+//   flex: 0 0 200px;
+//   border-right: 1px solid #ccc;
+// }
 
-.main {
-  flex: 1; /* fill remaining space */
-  padding: 16px;
-  overflow-y: auto;
-}
+// .main {
+//   flex: 1;
+//   overflow-y: auto;
+//   min-height: 0;
+// }
