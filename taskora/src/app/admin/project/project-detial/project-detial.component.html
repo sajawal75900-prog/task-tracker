@@ -1,1 +1,50 @@
-<p>project-detial works!</p>
+<h2 mat-dialog-title>{{ formTitle }}</h2>
+<form [formGroup]="projectDetail" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography">
+        <input mat type="hidden" formControlName="indexId" />
+        <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input id="name" matInput autocomplete="off" placeholder="Name" formControlName="name" required />
+            <mat-error> Please provide a valid name </mat-error>
+        </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Enter some input</mat-label>
+    <input matInput #input maxlength="10" placeholder="Ex. Nougat">
+  </mat-form-field>
+        <p></p>
+
+    <mat-form-field appearance="outline" class="w-full">
+    <mat-label>Description</mat-label>
+    <textarea matInput rows="3" formControlName="description"
+      placeholder="Brief overview of project goals...">
+    </textarea>
+  </mat-form-field>
+
+<div class="grid grid-cols-2 gap-4">
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" value="Active">
+        <mat-option value="Active">Active</mat-option>
+        <mat-option value="Hold">Hold</mat-option>
+        <mat-option value="Completed">Completed</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priority" value="Medium">
+        <mat-option value="Low">Low</mat-option>
+        <mat-option value="Medium">Medium</mat-option>
+        <mat-option value="High">High</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-raised-button mat-dialog-close>Cancel</button>
+        <button mat-raised-button cdkFocusInitial color="primary" [disabled]="!projectDetail.dirty || !projectDetail.valid"
+            type="submit">
+            Save
+        </button>
+    </mat-dialog-actions>
+</form>
