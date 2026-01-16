@@ -26,6 +26,7 @@ async upsertProject(project: ProjectDetail): Promise<number> {
   let projectToSave: any = {
     ...project,
     projectUlId: project.projectUlId || this.generateId(),
+    createdAt: project.indexId && project.indexId > 0 ? project.createdAt : new Date(),
   };
 
   // Include indexId only for updates
@@ -39,6 +40,7 @@ async upsertProject(project: ProjectDetail): Promise<number> {
   }
 
   const id = await db.projects.put(projectToSave);
+  this.getAllProjects(); // For debugging
   return id;
 }
 
