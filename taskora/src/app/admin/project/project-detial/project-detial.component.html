@@ -2,17 +2,11 @@
 <form [formGroup]="projectDetail" (ngSubmit)="onSubmit()">
     <mat-dialog-content class="mat-typography">
         <input mat type="hidden" formControlName="indexId" />
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" class="w-full">
             <mat-label>Name</mat-label>
             <input id="name" matInput autocomplete="off" placeholder="Name" formControlName="name" required />
             <mat-error> Please provide a valid name </mat-error>
         </mat-form-field>
-  <mat-form-field appearance="outline">
-    <mat-label>Enter some input</mat-label>
-    <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-  </mat-form-field>
-        <p></p>
-
     <mat-form-field appearance="outline" class="w-full">
     <mat-label>Description</mat-label>
     <textarea matInput rows="3" formControlName="description"

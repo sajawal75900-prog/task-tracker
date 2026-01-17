@@ -12,7 +12,6 @@ import { ProjectService } from '../../../service/project.service';
 export class ProjectDetialComponent implements OnInit {
  projectDetail!: UntypedFormGroup;
   formTitle: string | undefined;
-  tableFloor = ['Ground', 'First', 'Second'];
   constructor(@Inject(MAT_DIALOG_DATA) public data: ProjectDetail, private dialogRef: MatDialogRef<ProjectDetialComponent>
 , private projectService: ProjectService,
      private fb: UntypedFormBuilder) { }
@@ -30,7 +29,7 @@ export class ProjectDetialComponent implements OnInit {
       status: [this.data?.status || 'Active'],
       priority: [this.data?.priority || 'Medium']
     })
-    this.formTitle = this.projectDetail.get('id')?.value ? 'Edit Table' : 'Register Table';
+    this.formTitle = this.projectDetail.get('id')?.value ? 'Edit Project' : 'Register Project';
   }
 
   async onSubmit(): Promise<void> {
