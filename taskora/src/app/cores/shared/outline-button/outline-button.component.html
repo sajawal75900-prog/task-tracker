@@ -1,0 +1,12 @@
+<button
+  [style.color]="color"
+  [style.borderColor]="color"
+  class="custom-btn"
+>
+  <!-- Show icon only if provided -->
+  <span *ngIf="icon" class="btn-icon">
+    <i [class]="icon"></i>
+  </span>
+
+  {{ label }}
+</button>
