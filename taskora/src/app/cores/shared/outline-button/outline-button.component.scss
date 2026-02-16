@@ -1,0 +1,17 @@
+.custom-btn {
+  background: transparent;
+  border: 1px solid;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* spacing for icon */
+.btn-icon {
+  margin-right: 8px;
+  display: inline-flex;
+  align-items: center;
+}

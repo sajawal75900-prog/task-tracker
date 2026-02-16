@@ -1,32 +1,33 @@
-<div class="w-full h-full flex flex-col">
-  <div class="flex items-center justify-between px-3 py-1 mb-6 header">
-    <span class="font-bold text-lg">Project Portfolio</span>
-    <button
-      mat-raised-button
-      color="primary"
+<div class="flex flex-col h-[88vh]">
+  <!-- Header (Fixed Space) -->
+  <div
+    class="flex items-center justify-between px-3 py-2"
+  >
+    <span class="font-medium text-xl">Project Portfolio</span>
+
+    <app-outline-button
+      label="Add Project"
+      color="#3f51b5"
+      icon="fa fa-plus-circle"
       (click)="openCreateProjectDialog()"
-    >
-      + New Project
-    </button>
+    ></app-outline-button>
   </div>
 
-  <div
-    class="flex flex-1 items-center justify-center text-center"
-    *ngIf="!projects().length"
-  >
-    <div class="flex flex-col items-center">
-      <span
-        class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100"
-      >
+  <!-- Scrollable Content Area -->
+  <div class="flex-1 overflow-auto px-3 py-2">
+
+    <!-- Empty state -->
+    <div
+      class="flex flex-col items-center justify-center text-center"
+      *ngIf="!projects().length"
+    >
+      <span class="flex items-center justify-center w-12 h-12 rounded-full bg-gray-100">
         <mat-icon class="text-amber-400">folder</mat-icon>
       </span>
-
       <h3 class="mt-4">No Projects Found</h3>
-
       <p class="mt-2 text-gray-500">
         Click the button in the header to create your very first project!
       </p>
-
       <button
         mat-flat-button
         class="mt-2"
@@ -36,18 +37,17 @@
         Create Project
       </button>
     </div>
-  </div>
 
-  <div class="w-full px-3" *ngIf="projects().length">
-  <div class="flex flex-wrap -mx-3">
-    <app-project-card
-      *ngFor="let project of projects()"
-      class="w-1/2 px-3 mb-6"
-      [project]="project"
-      (edit)="openCreateProjectDialog($event)"
-      (goToTasks)="onGoToTasks($event)"
-    />
-  </div>
-</div>
+    <!-- Projects Grid -->
+    <div class="flex flex-wrap -mx-3" *ngIf="projects().length">
+      <app-project-card
+        *ngFor="let project of projects()"
+        class="w-1/2 px-3 mb-6"
+        [project]="project"
+        (edit)="openCreateProjectDialog($event)"
+        (goToTasks)="onGoToTasks($event)"
+      ></app-project-card>
+    </div>
 
+  </div>
 </div>
